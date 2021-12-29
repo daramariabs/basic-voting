@@ -2,10 +2,12 @@
     <ul>
         {% for question in latest_quetion_list %}
         <li>
-            <a href="/pools/{{question.id}}/">{{ question.quetion_text }}</a>
+            <a href="{% url 'polls:detail' question.id %}">{{ question.quetion_text }}</a>
+            
         </li>
         {% endfor %}
     </ul>
 {% else %}
     <p> No polls are available.</p>
 {% endif %}
+<p>tesssste</p>
