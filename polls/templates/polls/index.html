@@ -1,12 +1,20 @@
-{% if latest_question_list %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+
+<div class="container">
+    <h1>Perguntas</h1>
+    {% if latest_question_list %}
     <ul>
         {% for question in latest_question_list %}
         <li>
-            <a href="{% url 'polls:detail' question.id %}">{{ question.quetion_text }}</a>
-            
+            <a href="{% url 'polls:detail' question.id %}">{{ question.quetion_text }}</a> 
         </li>
         {% endfor %}
     </ul>
-{% else %}
-    <p> Não há enquetes disponíveis.</p>
-{% endif %}
+    {% else %}
+        <p> Não há enquetes disponíveis.</p>
+    {% endif %}
+</div>
+
